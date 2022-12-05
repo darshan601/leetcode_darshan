@@ -1,0 +1,40 @@
+#Python Solution
+
+list1=[]
+# outputs=[]
+c=0
+
+def backtrack(p,hats):
+    global c
+    global outputs
+    # print(p,hats)
+    if p==len(hats):
+        if len(list1)==len(hats):
+            c=c+1
+            # %(pow(10,9)+7)
+            print("list",list1,"c",c)
+            # outputs.append(list1)
+            print("C incremented")
+        return 0
+    # print(hats[p])
+    for i in hats[p]:
+        if i not in list1:
+            list1.append(i)
+            print("P",p,"I",i,list1)
+            backtrack(p+1,hats)
+            print("pop",list1.pop())
+            # del list1[-1]
+
+class Solution:
+    
+
+    def numberWays(self, hats: List[List[int]]) -> int:
+        list1.clear()
+        n=len(hats)
+        global c
+        c=0
+        if n==1:
+            return 1
+        backtrack(0,hats)
+        # print("Output",outputs)
+        return c
